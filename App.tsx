@@ -4,16 +4,12 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
-import Layout from "./pages/Layout";
+import { AnimatePresence } from "framer-motion";
 import Index from "./pages/Index";
 import Verify from "./pages/Verify";
-import Issue from "./pages/Issue";
-import Explorer from "./pages/Explorer";
+import About from "./pages/About";
+import Blockchain from "./pages/Blockchain";
 import NotFound from "./pages/NotFound";
-
-// For animations
-import { AnimatePresence } from "framer-motion";
 
 const queryClient = new QueryClient();
 
@@ -25,13 +21,11 @@ const App = () => (
       <BrowserRouter>
         <AnimatePresence mode="wait">
           <Routes>
-            <Route path="/" element={<Layout />}>
-              <Route index element={<Index />} />
-              <Route path="verify" element={<Verify />} />
-              <Route path="issue" element={<Issue />} />
-              <Route path="explorer" element={<Explorer />} />
-              <Route path="*" element={<NotFound />} />
-            </Route>
+            <Route path="/" element={<Index />} />
+            <Route path="/verify" element={<Verify />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/blockchain" element={<Blockchain />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </AnimatePresence>
       </BrowserRouter>
